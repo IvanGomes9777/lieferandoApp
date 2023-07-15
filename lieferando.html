@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liefrando</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body onload="render()">
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <a href="index.html">
+            <img src="img/logo.png" alt="Lieferando Logo" />
+          </a>
+        </div>
+        <ul class="menu">
+          <h1>Speisekarte</h1>
+        </ul>
+        <div class="user-profile">
+          <a href="#"><img src="img/avatar.jpeg" alt="User Avatar" /></a>
+        </div>
+      </nav>
+    </header>
+    <div class="contentAll">
+      
+  <div class="contentLeft">
+    <div class="top-container">
+      <div class="header-image">
+        <img src="img/food banner.jpeg" alt="" />
+      </div>
+    </div>
+
+    <div class="info">
+      <div class="info-all">
+        <div class="informations">
+          <h1>Ristorante Calebro</h1>
+        </div>
+        <div class="sterne">
+          <img id="stern" onclick="star()" src="img/stern.png" alt="" />
+          <img  src="img/stern.png" alt="" />
+          <img  src="img/stern.png" alt="" />
+          <img  src="img/stern.png" alt="" />
+          <img  src="img/stern.png" alt="" />
+          <a href="#">54 Bewertungen</a>
+        </div>
+        <div class="lieferung-info">
+          <img src="img/uhr.png" alt="" />
+          <p>Lieferung in 30-45min</p>
+          <p>-</p>
+          <img src="img/biker-mit-helm.png" alt="" />
+          <p>2.50 Euro</p>
+          <p>-</p>
+          <img src="img/erde.png" alt="" />
+          <p style="color: green">kostenlose Lieferung ab 10 Euro</p>
+        </div>
+        <div class="text">
+          <p>
+            Bei diesem Restaurant kannst du Stempel sammeln. Stelle beim
+            Bestellabschluss bitte sicher, dass du dich für unseren Newsletter
+            angemeldet hast, um deine Stempel per E-Mail zu erhalten.
+          </p>
+        </div>
+        <div class="text">
+          <p>
+            Best Restaurant Awards 2018 - MyFood hat einen Preis gewonnen! Danke
+            für Deine Unterstützung.
+          </p>
+        </div>
+        <div class="search-container">
+          <img src="img/search.png" alt="" />
+          <img onclick="back()" src="img/arrow.png" alt="" />
+          <div id="search-section" class="search-section">
+            <h4>Beliebt</h4>
+            <h4>Angebote</h4>
+            <h4>Pizza</h4>
+            <h4>Partypizza</h4>
+            <h4>Döner</h4>
+            <h4>Pizzabrötchen</h4>
+            <h4>Drehspieße</h4>
+            <h4>Pasta</h4>
+            <h4>Auflauf</h4>
+            <h4>Schnitzel</h4>
+            <h4>Imbiss</h4>
+            <h4>Salate</h4>
+            <h4>Dessert</h4>
+            <h4>Getränke</h4>
+          </div>
+          <img onclick="forward()" src="img/right-arrow.png" alt="" />
+        </div>
+      </div>
+  </div>
+
+  <div id="menücontainer"></div>
+</div>
+<div class="contentRight">
+  <div id="warenkorbBasket" class="warenkorb">
+    <h1>Warenkorb</h1>
+    <img class="img-warenkorb" src="img/korb.png" alt="" />
+    <h1>Fülle deinen Warenkorb</h1>
+    <p>
+      Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein
+      Essen.
+    </p>
+  </div>
+</div>
+</div>
+  </body>
+</html>

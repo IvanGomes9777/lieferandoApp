@@ -1,0 +1,256 @@
+body {
+  margin: 0;
+}
+
+.warenkorb {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contentAll {
+  display: flex;
+  width: 100%;
+}
+ 
+.contentRight {
+  width: 30%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  border-left: 1px solid #ccc;
+}
+
+.img-warenkorb {
+  width: 30px;
+  margin-top: 50px;
+}
+
+.header-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+header {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  width: 150px;
+  height: auto;
+}
+
+.menu li {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.menu li:first-child {
+  margin-left: 0;
+}
+
+.menu a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.user-profile img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.info {
+  box-shadow: 0px 5px 10px rgb(234, 234, 234);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  width: 80vw;
+}
+
+.sterne {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.sterne a {
+  text-decoration: underline;
+  color: #ccc;
+}
+.sterne a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.sterne img {
+  width: 15px;
+  object-fit: contain;
+}
+
+.lieferung-info {
+  display: flex;
+  gap: 5px;
+}
+
+.lieferung-info img {
+  width: 15px;
+  object-fit: contain;
+}
+
+.search-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
+  font-size: 20px;
+  scroll-behavior: smooth;
+}
+
+.search-container h4:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.search-container {
+  width: 1000px;
+  overflow: scroll;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.search-container img {
+  width: 25px;
+  border-radius: 50%;
+  background-color: #f5f3f1;
+  cursor: grab;
+}
+#menücontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#menücontainer a {
+  text-decoration: none;
+  color: black;
+}
+
+.menü-style {
+  border: 1px solid #ccc;
+  width:inherit;
+  border-radius: 10px;
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+.menü-style:hover {
+  background-color: #ccc;
+}
+
+.preis-währung {
+  display: flex;
+  gap: 5px;
+}
+
+.menü-informations {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  gap: 20px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image-container img {
+  width: 30px;
+  cursor: pointer;
+}
+
+.basketAll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.amount-price {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  font-weight: 600;
+}
+
+.ingredients-container {
+  margin-top: 5px;
+}
+
+.plus-minus-container {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.plus-minus-container img {
+  width: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
+.min-order-value {
+  font-size: 20px;
+}
+
+.delivery-cost {
+  margin-top: 10px;
+}
+
+.total {
+  margin-top: 10px;
+  text-decoration: underline;
+}
+
+.orderButton {
+  margin-top: 20px;
+  background-color: yellowgreen;
+  color: black;
+  border: 3px solid;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.ingrediantsStyle{
+  color: gray;
+  font-size: 20px;
+}
+
+.priceStyle{
+  color: orange;
+  display: flex;
+  gap: 5px;
+}
+
+.nameStyle{
+  margin: 10px;
+  color:chocolate;
+}
