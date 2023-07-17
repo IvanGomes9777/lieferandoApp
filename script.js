@@ -39,7 +39,7 @@ let menu = [
   {
     name: "Kinder Menü",
     ingredients: "kleines Schnitzel, mit Pommes und Dip nach Wahl",
-    price: 6.00,
+    price: 6.0,
     currency: "Euro",
     imageAdd: "img/addMenü.png",
     amount: 1,
@@ -50,35 +50,38 @@ let menu = [
 let MIN_ORDER_VALUE = 20;
 let shoppingBasket = [];
 
-function searchIcon() {}
+function returnRender(i,menuItem){
+return /*html*/ `
+<div class="menü-style">
+  <div class="image-container">
+    <div class="nameStyle">${menuItem.name}</div>
+    <img onclick="addToBasket(${i})" src="${menuItem.imageAdd}" alt="">
+  </div>
+  <div class="menü-informations">
+    <div class="ingrediantsStyle">${menuItem.ingredients}</div>
+    <div class="preis-währung">
+      <div class="priceStyle">
+      <div >${menuItem.price.toFixed(2)}</div>
+      <div>${menuItem.currency}</div>
+    </div>
+    </div>
+    <div class="note-container">
+      <div style="cursor:pointer;" onclick="toggleNoteField(${i})">Anmerkung hinzufügen</div>
+      <textarea id="noteField_${i}" placeholder="mit enter bestätigen" class="note-field hidden" 
+        onkeydown="acceptNoteField(event, ${i})"></textarea>
+        <p style="font-size:20px;text-decoration:underline;">vor der Auswahl des Menüs Anmerkung hinzufügen</p>
+    </div>
+  </div>
+</div>
+`;
+}
 
 function render() {
   let content = document.getElementById("menücontainer");
   content.innerHTML = "";
   for (let i = 0; i < menu.length; i++) {
     const menuItem = menu[i];
-    content.innerHTML += /*html*/ `
-      <div class="menü-style">
-        <div class="image-container">
-          <div class="nameStyle">${menuItem.name}</div>
-          <img onclick="addToBasket(${i})" src="${menuItem.imageAdd}" alt="">
-        </div>
-        <div class="menü-informations">
-          <div class="ingrediantsStyle">${menuItem.ingredients}</div>
-          <div class="preis-währung">
-            <div class="priceStyle">
-            <div >${menuItem.price.toFixed(2)}</div>
-            <div>${menuItem.currency}</div>
-          </div>
-          </div>
-          <div class="note-container">
-            <div style="cursor:pointer;text-decoration:underline;" onclick="toggleNoteField(${i})">Anmerkung hinzufügen</div>
-            <textarea id="noteField_${i}" placeholder="mit enter bestätigen" class="note-field hidden" 
-              onkeydown="acceptNoteField(event, ${i})"></textarea>
-          </div>
-        </div>
-      </div>
-    `;
+    content.innerHTML += returnRender(i,menuItem);
   }
 }
 
@@ -154,46 +157,48 @@ function subtractAmount(i) {
 
   renderBasket();
 }
-function returnRenderBasket() {
-  return;
+function returnRenderBasket(i, basketItem,formatttedPrice) {
+  return  `
+  <div class="basketAll">
+    <div class="amount-price">
+      <div class="amount-container">
+        ${basketItem.amount} ${basketItem.name}
+      </div>
+      <div class="price-container">
+        ${formatttedPrice} ${basketItem.currency}
+      </div>
+    </div>
+    <div class="ingredients-container">
+      ${basketItem.ingredients}
+    </div>
+    <div class="note-container">
+      <div>Anmerkung: ${basketItem.note}</div>
+    </div>
+    <div class="plus-minus-container">
+      <img onclick="subtractAmount(${i})" src="img/minus.icon.png" alt="">
+      <img onclick="addAmount(${i})" src="img/plus.icon.png" alt="">
+    </div>
+  </div>
+`;
+}
+function returnFirstInnerHTMLRenderBasket(){
+return `
+<div class="">
+  <h1>Warenkorb</h1>
+</div>
+`;
 }
 
 function renderBasket() {
   let contentBasket = document.getElementById("warenkorbBasket");
-  contentBasket.innerHTML = `
-    <div class="">
-      <h1>Warenkorb</h1>
-    </div>
-  `;
+  contentBasket.innerHTML = returnFirstInnerHTMLRenderBasket();
 
   let subtotal = 0;
-  
+
   for (let i = 0; i < shoppingBasket.length; i++) {
     const basketItem = shoppingBasket[i];
-    let formatttedPrice=basketItem.price.toFixed(2).replace('.', ',');
-    contentBasket.innerHTML += `
-      <div class="basketAll">
-        <div class="amount-price">
-          <div class="amount-container">
-            ${basketItem.amount} ${basketItem.name}
-          </div>
-          <div class="price-container">
-            ${formatttedPrice} ${basketItem.currency}
-          </div>
-        </div>
-        <div class="ingredients-container">
-          ${basketItem.ingredients}
-        </div>
-        <div class="note-container">
-          <div>Anmerkung: ${basketItem.note}</div>
-        </div>
-        <div class="plus-minus-container">
-          <img onclick="subtractAmount(${i})" src="img/minus.icon.png" alt="">
-          <img onclick="addAmount(${i})" src="img/plus.icon.png" alt="">
-        </div>
-      </div>
-    `;
-
+    let formatttedPrice = basketItem.price.toFixed(2).replace(".", ",");
+    contentBasket.innerHTML +=returnRenderBasket(i, basketItem, formatttedPrice);
     subtotal += basketItem.price;
   }
 
@@ -203,7 +208,7 @@ function renderBasket() {
   if (total < MIN_ORDER_VALUE) {
     contentBasket.innerHTML += `
       <div class="min-order-value">
-        Mindestbestellwert: ${MIN_ORDER_VALUE.toFixed(2).replace('.', ',')} ${
+        Mindestbestellwert: ${MIN_ORDER_VALUE.toFixed(2).replace(".", ",")} ${
       shoppingBasket[0].currency
     }
       </div>
@@ -211,13 +216,19 @@ function renderBasket() {
   } else {
     contentBasket.innerHTML += `
       <div class="subtotal">
-        Zwischensumme: ${subtotal.toFixed(2).replace('.', ',')} ${shoppingBasket[0].currency}
+        Zwischensumme: ${subtotal.toFixed(2).replace(".", ",")} ${
+      shoppingBasket[0].currency
+    }
       </div>
       <div class="delivery-cost">
-        Lieferkosten: ${deliveryCost.toFixed(2).replace('.', ',')} ${shoppingBasket[0].currency}
+        Lieferkosten: ${deliveryCost.toFixed(2).replace(".", ",")} ${
+      shoppingBasket[0].currency
+    }
       </div>
       <div class="total">
-        Gesamtsumme: ${total.toFixed(2).replace('.', ',')} ${shoppingBasket[0].currency}
+        <b style="color:green;font-weight:900;">Gesamtsumme</b>: ${total
+          .toFixed(2)
+          .replace(".", ",")} ${shoppingBasket[0].currency}
       </div>
       <button class="orderButton" onclick="placeOrder()">Bestellen</button>
     `;
@@ -244,18 +255,14 @@ function forward() {
   selectionBar.scrollLeft += 200;
 }
 
-function finishDelivery() {
-  alert("Danke für Ihre Bestellung");
-}
-
 function star() {
-  saveIcon=document.getElementById("stern");
-  let oldStar = "img/stern.png"
-  let newStar = "img/star.png"
+  saveIcon = document.getElementById("stern");
+  let oldStar = "img/stern.png";
+  let newStar = "img/star.png";
 
-  if(saveIcon.getAttribute("src")=== oldStar){
+  if (saveIcon.getAttribute("src") === oldStar) {
     saveIcon.setAttribute("src", newStar);
-  }else{
-    saveIcon.src=oldStar;
+  } else {
+    saveIcon.src = oldStar;
   }
 }

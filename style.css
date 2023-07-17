@@ -4,19 +4,24 @@ body {
 
 .warenkorb {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  background-color: #f5f5f5;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .contentAll {
   display: flex;
   width: 100%;
 }
- 
+
+.contentLeft {
+  width: 70vw;
+}
+
 .contentRight {
-  width: 30%;
+  width: 30vw;
   height: 100vh;
   position: sticky;
   top: 0;
@@ -76,7 +81,6 @@ header {
   overflow: hidden;
   display: flex;
   justify-content: center;
-  width: 80vw;
 }
 
 .sterne {
@@ -151,7 +155,7 @@ header {
 
 .menü-style {
   border: 1px solid #ccc;
-  width:inherit;
+  width: inherit;
   border-radius: 10px;
   font-size: 25px;
   margin-top: 20px;
@@ -239,18 +243,91 @@ header {
   cursor: pointer;
 }
 
-.ingrediantsStyle{
+.ingrediantsStyle {
   color: gray;
   font-size: 20px;
 }
 
-.priceStyle{
+.priceStyle {
   color: orange;
   display: flex;
   gap: 5px;
 }
 
-.nameStyle{
+.nameStyle {
   margin: 10px;
-  color:chocolate;
+  color: chocolate;
+}
+
+@media (max-width: 375px) {
+  .contentRight {
+    display: none;
+  }
+
+  .contentLeft {
+    width: 100vw;
+  }
+
+  .user-profile {
+    display: none;
+  }
+
+  .info {
+    display: block;
+  }
+
+  .search-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 950px) {
+  .contentRight {
+    display: none;
+  }
+
+  .contentLeft {
+    width: 100vw;
+  }
+
+  .user-profile {
+    display: none;
+  }
+
+  .info {
+    display: block;
+  }
+
+  .search-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1400px) {
+  .contentRight {
+    display: none;
+  }
+
+  .contentLeft {
+    width: 100vw;
+  }
+
+  .user-profile {
+    display: none;
+  }
+
+  .info {
+    display: block;
+  }
+
+  .search-container {
+    width: 100%;
+  }
+
+  .info-all {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
