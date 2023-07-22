@@ -266,3 +266,12 @@ function star() {
     saveIcon.src = oldStar;
   }
 }
+
+function showWarenkorb(){
+  document.getElementById('basketresponsiv').style=`display:block;`;
+}
+  
+
+function responsiveCloseButton(){
+document.getElementById('basketresponsiv').style=`display:none;`;
+}

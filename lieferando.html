@@ -23,6 +23,7 @@
         </div>
       </nav>
     </header>
+
     <div class="contentAll">
       <div class="contentLeft">
         <div class="top-container">
@@ -94,19 +95,27 @@
 
         <div id="menücontainer"></div>
       </div>
-      <div class="contentRight">
-          <div id="warenkorbBasket" class="warenkorb">
-            <h1>Warenkorb</h1>
-            <img class="img-warenkorb" src="img/korb.png" alt="" />
-            <h1>Fülle deinen Warenkorb</h1>
-            <p>
-              Füge einige leckere Gerichte aus der Speisekarte hinzu und
-              bestelle dein Essen.
-            </p>
-            
-          </div>
+      
+      <div id="basketresponsiv" class="contentRight">
+        <div class="closeResponsiv">
+          <img onclick="responsiveCloseButton()" id="responsiveClose" src="img/close.png" alt="">
         </div>
-      </div>
+        <div id="warenkorbBasket" class="warenkorb">
+          <h1>Warenkorb</h1>
+          <img class="img-warenkorb" src="img/korb.png" alt="" />
+          <h1>Fülle deinen Warenkorb</h1>
+          <p>
+            Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle
+            dein Essen.
+          </p>
+        </div>
     </div>
+    </div>
+    <div class="button-container">
+      <button onclick="showWarenkorb()" class="buttonResponsiv">
+        Warenkorb
+      </button>
+    </div>
+    
   </body>
 </html>

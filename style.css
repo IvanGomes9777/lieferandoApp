@@ -7,8 +7,14 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: #f5f5f5;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contentRight {
+  width: 30vw;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  border-left: 1px solid #ccc;
 }
 
 .contentAll {
@@ -18,14 +24,6 @@ body {
 
 .contentLeft {
   width: 70vw;
-}
-
-.contentRight {
-  width: 30vw;
-  height: 100vh;
-  position: sticky;
-  top: 0;
-  border-left: 1px solid #ccc;
 }
 
 .img-warenkorb {
@@ -235,11 +233,11 @@ header {
 }
 
 .orderButton {
-  margin-top: 20px;
+  margin-top: 8px;
   background-color: yellowgreen;
   color: black;
-  border: 3px solid;
-  font-size: 30px;
+  /* border: 3px solid; */
+  font-size: 25px;
   cursor: pointer;
 }
 
@@ -259,57 +257,31 @@ header {
   color: chocolate;
 }
 
-@media (max-width: 375px) {
-  .contentRight {
-    display: none;
-  }
-
-  .contentLeft {
-    width: 100vw;
-  }
-
-  .user-profile {
-    display: none;
-  }
-
-  .info {
-    display: block;
-  }
-
-  .search-container {
-    width: 100%;
-  }
+.buttonResponsiv {
+  display: none;
 }
 
-@media (max-width: 950px) {
-  .contentRight {
-    display: none;
-  }
-
-  .contentLeft {
-    width: 100vw;
-  }
-
-  .user-profile {
-    display: none;
-  }
-
-  .info {
-    display: block;
-  }
-
-  .search-container {
-    width: 100%;
-  }
+.closeResponsiv {
+  display: none;
 }
 
 @media (max-width: 1400px) {
-  .contentRight {
-    display: none;
+
+  .warenkorb{
+    font-size: 13px;
   }
 
   .contentLeft {
     width: 100vw;
+  }
+
+  .closeResponsiv {
+    display: block;
+    cursor: pointer;
+  }
+
+  .closeResponsiv img{
+    width: 30px;
   }
 
   .user-profile {
@@ -329,5 +301,29 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .buttonResponsiv {
+    display: block;
+    font-size: 30px;
+    color: white;
+    background-color: green;
+    box-shadow: 0px 0px 5px 0px black;
+    cursor: pointer;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    bottom: 50px;
+  }
+
+  .contentRight {
+    position: absolute;
+    background-color: darkorange;
+    width: 100%;
+    display: none;
+    justify-content: center;
   }
 }
