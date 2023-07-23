@@ -320,7 +320,7 @@ header {
   }
 
   .contentRight {
-    position: absolute;
+    position: fixed;
     background-color: darkorange;
     width: 100%;
     display: none;
