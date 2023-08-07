@@ -324,5 +324,6 @@ header {
     background-color: darkorange;
     width: 100%;
     display: none;
+    justify-content: center;
   }
 }
